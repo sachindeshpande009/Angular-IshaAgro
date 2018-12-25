@@ -1,0 +1,12 @@
+header{
+    font-size: 40px;
+    background-color: blueviolet;
+}
+
+input[type=text]{
+    width: 25%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }

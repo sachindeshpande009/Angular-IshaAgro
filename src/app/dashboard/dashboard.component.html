@@ -1,0 +1,44 @@
+<div class="sidebar">
+
+  <div class="brand">Isha Agro</div>
+  <span class="glyphicon glyphicon-dashboard"><label>Dashboard</label></span>
+  <a [routerLink]="['/dashboard']" (click)="changeValue('state');"> State Master</a>
+  <a [routerLink]="['/dashboard']" (click)="changeValue('district');"> District Master</a>
+</div>
+
+
+
+<div class="container-fluid">
+
+  <label>{{title}} Master</label>
+  <div class="col-md-12">
+    <button class="btn btn-lg btn-primary pull-right" [routerLink]="['/addstate']" type="button">Add State</button>
+
+  </div>
+
+
+
+  <div class="col-md-12">
+    <table class="table table-striped" #somename>
+      <thead>
+
+        <tr>
+          <th>StateName</th>
+          <th>Actions</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let statesDetail of statesDetail;">
+
+          <td>{{statesDetail.stateName}}</td>
+
+          <td>
+            <span><i [routerLink]="['/addstate']" [queryParams]="{ _id: statesDetail._id }" class="glyphicon glyphicon-pencil"></i></span>
+            <span><i (click)="deleteRecord(statesDetail._id)" class="glyphicon glyphicon-trash"></i></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

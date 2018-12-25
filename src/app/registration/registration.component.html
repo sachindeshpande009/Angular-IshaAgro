@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <section class="container">
+  <div class="row">				
+    <div class="col-md-6">
+      <h3 class="dark-grey">Registration</h3>
+      <form #frm="ngForm" (ngSubmit)="onSubmit(frm.value)">
+      <div class="form-group col-lg-12">
+        <label>Username</label>
+        <input type="text" name="empUsername" class="form-control" #empUsername="ngModel" required ngModel [(ngModel)]="empuser">
+      </div>
+      
+      <div class="form-group col-lg-6">
+        <label>Password</label>
+        <input type="password" name="empPassword" class="form-control" #empPassword="ngModel" required ngModel [(ngModel)]="emppass">
+      </div>
+      
+      <div class="form-group col-lg-6">
+        <label>Repeat Password</label>
+        <input type="password" name="empPassword" class="form-control" [(ngModel)]="emppass1" required >
+      </div>
+              
+      <div class="form-group col-lg-6">
+        <label>Email Address</label>
+        <input type="email" name="empEmail" class="form-control" #empEmail="ngModel" required ngModel [(ngModel)]="email">
+      </div>
+        <input type="hidden" name="_id" class="form-control" #_id="ngModel" ngModel [(ngModel)]="id">
+        
+      <button type="submit" [disabled]="!frm.valid" class="btn btn-primary">Register</button>
+      <button type="button" [routerLink]="['']" class="btn btn-primary">Login</button>
+      </form>
+
+    </div>
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>EmpName</th>
+            <th>EmpPassword</th>
+            <th>EmpEmail</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empDetail of empDetail;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{empDetail.empUsername}}</td>
+            <td>{{empDetail.empPassword}}</td>
+            <td>{{empDetail.empEmail}}</td>
+            <td><span><i (click)="editRecord(empDetail._id)" class="glyphicon glyphicon-pencil"></i></span><span><i (click)="deleteRecord(empDetail._id)" class="glyphicon glyphicon-trash"></i></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</div>
