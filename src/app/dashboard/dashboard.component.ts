@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
   export class DashboardComponent implements OnInit {
   id: string;
+  
   statename1: string;
   statesDetail: any;
   title:any = "State";
